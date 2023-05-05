@@ -19,8 +19,8 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<h1>Home Pageeeeeeeeeee</h1>} />
-      <Route path="/login" element={<LoginPage handleSignupOrLogin={handleSignupOrLogin}/>} />
-      <Route path='/signup' element={<SignupPage handleSignupOrLogin={handleSignupOrLogin}/>} />
+      <Route path="/login" element={<LoginPage handleSignupOrLogin={handleSignupOrLogin} loggedUser={user}/> } />
+      <Route path='/signup' element={<SignupPage handleSignupOrLogin={handleSignupOrLogin} loggedUser={user} /> } />
     </Routes>
   );
 }
