@@ -1,9 +1,13 @@
 import { Form, Button, Grid, Header, Image, Segment } from 'semantic-ui-react'
 import { useState } from 'react'
+import userService from '../../utils/userService'
 
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage'
+import { useNavigate } from 'react-router-dom' 
 
-export default function SignupPage(){
+export default function SignupPage({handleSignupOrLogin}){
+
+    const navigate = useNavigate()
 
     const [state, setState] = useState({
         username: '',
@@ -14,12 +18,18 @@ export default function SignupPage(){
     
     const [error, setError] = useState("");
 
-    async function handleChange(){
-
+    async function handleChange(e){
+        setState({
+            ...state,
+            [e.target.name]:e.target.value
+        })
     }
 
     async function handleSubmit(e){
         e.preventDefault()
+        await userService.signup(state)
+        handleSignupOrLogin()
+        navigate('/')
     }
     return (
         <Grid textAlign="center" style={{ height: "100vh" }} verticalAlign="middle">
