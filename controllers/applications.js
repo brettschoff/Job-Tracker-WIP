@@ -20,12 +20,13 @@ async function create(req,res){
         await Application.create({
             title: req.body.title,
             user: req.user._id,
-            company: req.body.user,
+            company: req.body.company,
             status: req.body.status,
-            dateApplied: req.body.status,
+            dateApplied: req.body.dateApplied,
             jobLink: req.body.jobLink,
             contactEmail: req.body.contactEmail
         })
+        res.status(201).json({msg: 'Application created'})
     }catch(err){
         console.log(err)
     }

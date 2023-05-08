@@ -8,9 +8,9 @@ export function getAll(){
         headers: {
             Authorization: 'Bearer ' + tokenService.getToken()
         }
-    }).then(rez => rez.json())
+    })
 }
-
+//  .then(rez => rez.json())
 export function create(application){
     return fetch(BASE_URL,{
         method:'POST',
@@ -20,7 +20,7 @@ export function create(application){
             'Content-Type': 'application/json'
         }
     }).then(rez => {
-        if(rez.ok) return rez.json()
+        if(rez.ok) return rez
         throw new Error('Something is wrong with create application')
     })
 }

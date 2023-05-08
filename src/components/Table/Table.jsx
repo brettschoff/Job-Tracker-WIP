@@ -2,7 +2,7 @@ import { Table } from 'semantic-ui-react'
 import TableBody from '../TableBody/TableBody'
 
 
-export default function applicationTable({applications}){
+export default function applicationTable({applications, onChange}){
     return(
         <Table celled>
             <Table.Header>
@@ -17,8 +17,8 @@ export default function applicationTable({applications}){
                 </Table.Row>
             </Table.Header>
             <Table.Body>
-                {applications?.map((application) => {
-                    return <TableBody application={application}/>
+                {applications.map((application) => {
+                    return <TableBody handleChange={onChange} application={application} key={application._id}/>
                 })}
             </Table.Body>
         </Table>
