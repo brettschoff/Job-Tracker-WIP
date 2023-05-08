@@ -5,6 +5,7 @@ import { useState } from 'react'
 
 import LoginPage from "./pages/LoginPage/LoginPage";
 import SignupPage from "./pages/SignupPage/SignupPage";
+import Table from "./components/Table/Table";
 
 import userService from "./utils/userService";
 
@@ -18,7 +19,7 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<h1>Home Pageeeeeeeeeee</h1>} />
+      <Route path="/" element={<Table />} />
       <Route path="/login" element={<LoginPage handleSignupOrLogin={handleSignupOrLogin} loggedUser={user}/> } />
       <Route path='/signup' element={<SignupPage handleSignupOrLogin={handleSignupOrLogin} loggedUser={user} /> } />
     </Routes>
