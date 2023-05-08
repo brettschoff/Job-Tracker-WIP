@@ -1,4 +1,4 @@
-import { Table } from 'semantic-ui-react'
+import { Table, Icon, Checkbox } from 'semantic-ui-react'
 
 export default function ApplicationTable({application}){
     return (
@@ -9,7 +9,7 @@ export default function ApplicationTable({application}){
                 <Table.Cell>{application.status}</Table.Cell>
                 <Table.Cell>{application.dateApplied}</Table.Cell>
                 <Table.Cell>{application.contactEmail}</Table.Cell>
-                <Table.Cell>{application.followUp}</Table.Cell>
+                {application.followUp ? <Table.Cell><Icon name='Check'/></Table.Cell> : <Table.Cell><Checkbox/></Table.Cell>}
                 <Table.Cell>{application.jobLink}</Table.Cell>
             </Table.Row>
         </>

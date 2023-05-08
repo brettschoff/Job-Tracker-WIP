@@ -17,8 +17,8 @@ export default function applicationTable({applications}){
                 </Table.Row>
             </Table.Header>
             <Table.Body>
-                {applications?.map((application) => {
-                    return <TableBody application={application}/>
+                {applications.map((application) => {
+                    return <TableBody application={application} key={application._id}/>
                 })}
             </Table.Body>
         </Table>

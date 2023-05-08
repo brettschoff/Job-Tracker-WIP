@@ -10,10 +10,10 @@ export default function CreateApplication(){
 
 
     const options = [
-        {key:'a', text:'applied', value:'applied'},
-        {key:'i', text:'interview', value:'interview'},
-        {key:'o', text:'offer', value:'offer'},
-        {key:'r', text:'rejected', value:'rejected'}
+        {key:'a', text:'Applied', value:'Applied'},
+        {key:'i', text:'Interview', value:'Interview'},
+        {key:'o', text:'Offer', value:'Offer'},
+        {key:'r', text:'Rejected', value:'Rejected'}
     ]
 
     const [application, setApplication] = useState({

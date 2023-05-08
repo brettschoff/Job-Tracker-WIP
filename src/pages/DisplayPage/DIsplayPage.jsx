@@ -11,6 +11,8 @@ export default function DisplayPage({handleLogout}){
     async function getApplications(){
         const response = await applicationsApi.getAll()
         console.log(response)
+        console.log(response.data)
+        setApplications(response.data.applications)
     }
 
     useEffect(() => {
