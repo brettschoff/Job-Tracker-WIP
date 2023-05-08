@@ -5,7 +5,8 @@ import { useState } from 'react'
 
 import LoginPage from "./pages/LoginPage/LoginPage";
 import SignupPage from "./pages/SignupPage/SignupPage";
-import Table from "./components/Table/Table";
+import DisplayPage from "./pages/DisplayPage/DIsplayPage";
+import CreateApplication from "./pages/CreateApplication/CreateApplication";
 
 import userService from "./utils/userService";
 
@@ -17,11 +18,17 @@ function App() {
     setUser(userService.getUser())
   }
 
+  function handleLogout(){
+    userService.login();
+    setUser(null);
+  }
+
   return (
     <Routes>
-      <Route path="/" element={<Table />} />
+      <Route path="/" element={<DisplayPage handleLogout={handleLogout} />} />
       <Route path="/login" element={<LoginPage handleSignupOrLogin={handleSignupOrLogin} loggedUser={user}/> } />
       <Route path='/signup' element={<SignupPage handleSignupOrLogin={handleSignupOrLogin} loggedUser={user} /> } />
+      <Route path='/new-application' element={<CreateApplication />} />
     </Routes>
   );
 }

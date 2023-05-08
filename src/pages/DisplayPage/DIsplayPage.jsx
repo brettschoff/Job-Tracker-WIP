@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 
 import * as applicationsApi from '../../utils/applicationsApi'
 
-export default function DisplayPage(){
+export default function DisplayPage({handleLogout}){
     const [applications, setApplications] = useState([])
 
     async function getApplications(){
@@ -16,10 +16,10 @@ export default function DisplayPage(){
     useEffect(() => {
         getApplications();
     }, [])
-    
+
     return (
         <div>
-            <PageHeader />
+            <PageHeader handleLogout={handleLogout} />
             <Table applications={applications}/>
         </div>
     )

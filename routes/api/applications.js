@@ -4,4 +4,6 @@ const applicationsCtrl = require('../../controllers/applications')
 
 router.get('/', applicationsCtrl.index)
 
+router.post('/', applicationsCtrl.create)
+
 module.exports = router;
