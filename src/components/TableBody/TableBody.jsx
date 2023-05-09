@@ -12,7 +12,7 @@ export default function ApplicationTable({application, handleChange}){
             <Table.Row>
                 <Table.Cell>{application.title}</Table.Cell>
                 <Table.Cell>{application.company}</Table.Cell>
-                <Table.Cell><Dropdown name="status" onChange={handleChange} placeholder={application.status} options={options}/></Table.Cell>
+                <Table.Cell><Dropdown name="status" onChange={(e, data) => handleChange(e, data, application._id)} placeholder={application.status} options={options}/></Table.Cell>
                 <Table.Cell>{application.dateApplied}</Table.Cell>
                 <Table.Cell>{application.contactEmail}</Table.Cell>
                 {application.followUp ? <Table.Cell><Icon name='Check'/></Table.Cell> : <Table.Cell><Checkbox/></Table.Cell>}
