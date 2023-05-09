@@ -18,15 +18,21 @@ export default function DisplayPage({handleLogout}){
         setApplications(response.data.applications)
     }
 
-    async function onChange(e, data){
+    async function onChange(e, data, applicationId) {
         const { name, value } = data || e.target;
         setEditApplications({
-          ...editApplications,[{
-          [name]: value,
-          id: e.target.key
-        }]}); 
-        handleAdd()
-    }
+          ...editApplications,
+          [applicationId]: {
+            [name]: value,
+          },
+        });
+        handleAdd(applicationId);
+      }
+      
+      async function handleAdd(applicationId) {
+        // Make an API call to update the application with the given applicationId
+      }
+      
 
     async function handleAdd(){}
 
