@@ -12,6 +12,8 @@ export default function DisplayPage({handleLogout}){
 
     const [applications, setApplications] = useState([])
     const [editApplications, setEditApplications] = useState()
+    const [loading,setLoading] = useState(false)
+    const [applicationId, setApplicationId] = useState()
 
 
     async function getApplications(){
@@ -22,22 +24,31 @@ export default function DisplayPage({handleLogout}){
     }
 
 
-    async function onChange(e, data, applicationId, checked) {
+    async function onChange(e, data, applicationId) {
+        setLoading(true)
+        setApplicationId(applicationId)
         const { name, value } = data || e.target;
-        setEditApplications({
+        const editedApplication = {
             id: applicationId,
             [name]: value
-        });
-        handleAdd(applicationId);
+        }
+        setEditApplications(editedApplication);
       }
       
       async function handleAdd(id) {
         // Make an API call to update the application with the given applicationId
         await applicationsApi.update(editApplications, id)
+        setLoading(false)
         navigate('/')
       }
       
+    useEffect(() => {
+        if(loading){
+            handleAdd(applicationId)
+        }
+        setLoading(false)
 
+    }, [editApplications])
 
     useEffect(() => {
         getApplications();
