@@ -12,7 +12,7 @@ export default function ApplicationTable({application, onChange}){
             <Table.Row>
                 <Table.Cell>{application.title}</Table.Cell>
                 <Table.Cell>{application.company}</Table.Cell>
-                <Table.Cell><Dropdown name="status" onChange={(e, data) => onChange(e, data, application._id)} placeholder={application.status} options={options}/></Table.Cell>
+                <Table.Cell><Dropdown name="status" onChange={(e, data) => onChange(e, data, application._id)} defaultValue={application.status} options={options}/></Table.Cell>
                 <Table.Cell>{application.dateApplied}</Table.Cell>
                 <Table.Cell>{application.contactEmail}</Table.Cell>
                 <Table.Cell>

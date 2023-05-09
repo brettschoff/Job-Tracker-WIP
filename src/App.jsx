@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import "./App.css";
 
 import { useState } from 'react'
@@ -19,18 +19,33 @@ function App() {
   }
 
   function handleLogout(){
-    userService.login();
+    userService.logout();
     setUser(null);
   }
 
+  if(user){
   return (
+      <Routes>
+        <Route path="/" element={<DisplayPage handleLogout={handleLogout} />} />
+        <Route path="/login" element={<LoginPage handleSignupOrLogin={handleSignupOrLogin} loggedUser={user}/> } />
+        <Route path='/signup' element={<SignupPage handleSignupOrLogin={handleSignupOrLogin} loggedUser={user} /> } />
+        <Route path='/new-application' element={<CreateApplication />} />
+      </Routes>
+    );
+  }
+  return(
     <Routes>
-      <Route path="/" element={<DisplayPage handleLogout={handleLogout} />} />
-      <Route path="/login" element={<LoginPage handleSignupOrLogin={handleSignupOrLogin} loggedUser={user}/> } />
-      <Route path='/signup' element={<SignupPage handleSignupOrLogin={handleSignupOrLogin} loggedUser={user} /> } />
-      <Route path='/new-application' element={<CreateApplication />} />
+      <Route
+        path="/login"
+        element={<LoginPage handleSignupOrLogin={handleSignupOrLogin} />}
+      />
+      <Route
+        path="/signup"
+        element={<SignupPage handleSignupOrLogin={handleSignupOrLogin} />}
+      />
+      <Route path="/*" element={<Navigate to="/login" />} />
     </Routes>
-  );
-}
+  )
+  }
 
 export default App;

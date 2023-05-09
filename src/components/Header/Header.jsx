@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom'
-import { Header, Segment, Image, Icon } from 'semantic-ui-react'
+import { Header, Segment, Sticky, Icon } from 'semantic-ui-react'
 
 export default function PageHeader({handleLogout}){
 
     return (
+        <Sticky>
         <Segment clearing>
             <Header as="h2" floated="right">
                 <Link to="/">
@@ -14,5 +15,6 @@ export default function PageHeader({handleLogout}){
                 </Link>
             </Header>
         </Segment>
+        </Sticky>
   );
 }

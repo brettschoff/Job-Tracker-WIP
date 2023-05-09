@@ -1,6 +1,6 @@
 import PageHeader from "../../components/Header/Header";
 import Table from "../../components/Table/Table"
-import { Button } from "semantic-ui-react";
+import { Grid } from "semantic-ui-react";
 import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom'
 
@@ -39,7 +39,7 @@ export default function DisplayPage({handleLogout}){
         // Make an API call to update the application with the given applicationId
         await applicationsApi.update(editApplications, id)
         setLoading(false)
-        navigate('/')
+        getApplications()
       }
       
     useEffect(() => {
@@ -55,10 +55,17 @@ export default function DisplayPage({handleLogout}){
     }, [])
 
     return (
-        <div>
-            <PageHeader handleLogout={handleLogout} />
-            <Button />
-            <Table applications={applications} onChange={onChange}/>
-        </div>
+        <Grid centered>
+            <Grid.Row>
+                <Grid.Column>
+                    <PageHeader handleLogout={handleLogout} />
+                </Grid.Column>
+            </Grid.Row>
+            <Grid.Row>
+                <Grid.Column style={{maxWidth: 700}}>
+                    <Table applications={applications} onChange={onChange}/>
+                </Grid.Column>
+            </Grid.Row>
+        </Grid>
     )
 }
