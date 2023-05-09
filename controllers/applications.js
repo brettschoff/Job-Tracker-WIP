@@ -37,5 +37,18 @@ async function update(req, res){
     console.log(req.body, '<-- This is req.body')
     const application = await Application.findById(req.params.id)
     console.log(application, '<-- This is found application')
+    try{
+        if(req.body.status){
+            application.status = req.body.status
+            await application.save()
+        }
+        if(req.body.followUp === 'on'){
+            application.followUp = true
+            await application.save()
+        }
+        res.status(201).json({msg: 'Application updated'})
+    }catch(err){
+        console.log(err)
+    }
 
 }

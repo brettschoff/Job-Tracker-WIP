@@ -16,7 +16,7 @@ export default function ApplicationTable({application, onChange}){
                 <Table.Cell>{application.dateApplied}</Table.Cell>
                 <Table.Cell>{application.contactEmail}</Table.Cell>
                 <Table.Cell>
-                    {application.followUp ? <input type='checkbox' checked name='followUp' onChange={(e, data) => onChange(e, data, application._id)}/>
+                    {application.followUp ? <Icon name='check'/>
                     : <input type='checkbox' name='followUp' onChange={(e, data) => onChange(e, data, application._id)}/>}
                 </Table.Cell>
                 <Table.Cell>{application.jobLink}</Table.Cell>
