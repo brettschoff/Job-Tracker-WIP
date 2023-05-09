@@ -2,7 +2,8 @@ const Application = require('../models/application')
 
 module.exports={
     index,
-    create
+    create,
+    update
 }
 
 async function index(req,res){
@@ -30,4 +31,11 @@ async function create(req,res){
     }catch(err){
         console.log(err)
     }
+}
+
+async function update(req, res){
+    console.log(req.body, '<-- This is req.body')
+    const application = await Application.findById(req.params.id)
+    console.log(application, '<-- This is found application')
+
 }

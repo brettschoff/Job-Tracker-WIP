@@ -18,7 +18,7 @@ export default function applicationTable({applications, onChange}){
             </Table.Header>
             <Table.Body>
                 {applications.map((application) => {
-                    return <TableBody handleChange={onChange} application={application} key={application._id}/>
+                    return <TableBody onChange={onChange} application={application} key={application._id}/>
                 })}
             </Table.Body>
         </Table>
