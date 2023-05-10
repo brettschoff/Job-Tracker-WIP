@@ -1,5 +1,11 @@
 const mongoose = require("mongoose");
 
+const noteSchema = new mongoose.Schema({
+    // One application has many notes, a note belongs to one application
+    application: { type: mongoose.Schema.Types.ObjectId, ref: "Application" },
+    note: { type: String, required: true },
+    priority: { type: String, enum: ["High", "Medium", "Low"], default: "Low" },
+});
 const applicationSchema = new mongoose.Schema({
     // One user has many applications, an application belongs to one user
     user: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
