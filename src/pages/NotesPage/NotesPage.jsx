@@ -39,7 +39,7 @@ export default function NotesPage(){
         e.preventDefault()
         console.log(form)
         try{
-            await notesApi.create(form)
+            await notesApi.create(id, form)
             setNotes([form, ...notes])
         }catch(err){
             console.log(err)

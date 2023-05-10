@@ -6,11 +6,11 @@ export default function NoteCard({notes}){
         <>
         <Card>
             <Card.Content>
-                <Card.Header>title</Card.Header>
-                <Card.Description>note</Card.Description>
+                <Card.Header>{notes.title}</Card.Header>
+                <Card.Description>{notes.note}</Card.Description>
             </Card.Content>
             <Card.Content extra>
-                <span>priority</span>
+                <span>{notes.priority}</span>
             </Card.Content>
         </Card>
         </>

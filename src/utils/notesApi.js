@@ -12,3 +12,14 @@ export function getAll(id){
         }
     }).then(res => res.json());
 }
+
+export function create(id, data){
+    return fetch(`${BASE_URL}${id}/notes`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + tokenService.getToken()  
+    },
+    body: JSON.stringify(data)
+    }).then(res => res.json());
+}
