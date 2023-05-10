@@ -1,4 +1,4 @@
-import { Route, Routes, Navigate } from "react-router-dom";
+import { Route, Routes, Navigate, useParams } from "react-router-dom";
 import "./App.css";
 
 import { useState } from 'react'
@@ -14,7 +14,7 @@ import NotesPage from "./pages/NotesPage/NotesPage";
 function App() {
 
   const [user, setUser] = useState(userService.getUser())
-
+  const {id} = useParams()
   function handleSignupOrLogin(){
     setUser(userService.getUser())
   }

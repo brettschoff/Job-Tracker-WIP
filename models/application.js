@@ -2,7 +2,8 @@ const mongoose = require("mongoose");
 
 const noteSchema = new mongoose.Schema({
     // One application has many notes, a note belongs to one application
-    application: { type: mongoose.Schema.Types.ObjectId, ref: "Application" },
+    application: { type: mongoose.Schema.Types.ObjectId },
+    title: { type: String, required: true },
     note: { type: String, required: true },
     priority: { type: String, enum: ["High", "Medium", "Low"], default: "Low" },
 });
@@ -17,6 +18,7 @@ const applicationSchema = new mongoose.Schema({
     contactEmail: { type: String, required: true },
     followUp: { type: Boolean, default: false },
     jobLink: { type: String, required: true },
+    notes: [noteSchema],
 });
 
 module.exports = mongoose.model("Application", applicationSchema);
