@@ -14,6 +14,7 @@ export default function applicationTable({applications, onChange}){
                     <Table.HeaderCell>Contact Email</Table.HeaderCell>
                     <Table.HeaderCell>Follow up</Table.HeaderCell>
                     <Table.HeaderCell>Job Link</Table.HeaderCell>
+                    <Table.HeaderCell>Notes</Table.HeaderCell>
                 </Table.Row>
             </Table.Header>
             <Table.Body>

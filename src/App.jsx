@@ -1,4 +1,4 @@
-import { Route, Routes, Navigate } from "react-router-dom";
+import { Route, Routes, Navigate, useParams } from "react-router-dom";
 import "./App.css";
 
 import { useState } from 'react'
@@ -14,7 +14,7 @@ import NotesPage from "./pages/NotesPage/NotesPage";
 function App() {
 
   const [user, setUser] = useState(userService.getUser())
-
+  const {id} = useParams()
   function handleSignupOrLogin(){
     setUser(userService.getUser())
   }
@@ -31,7 +31,7 @@ function App() {
         <Route path="/login" element={<LoginPage handleSignupOrLogin={handleSignupOrLogin} loggedUser={user}/> } />
         <Route path='/signup' element={<SignupPage handleSignupOrLogin={handleSignupOrLogin} loggedUser={user} /> } />
         <Route path='/new-application' element={<CreateApplication />} />
-        <Route path='/notes' element={<NotesPage/>} />
+        <Route path='/application/:id/notes' element={<NotesPage/>} />
       </Routes>
     );
   }
