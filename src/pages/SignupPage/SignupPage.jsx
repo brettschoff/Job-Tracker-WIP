@@ -1,9 +1,9 @@
-import { Form, Button, Grid, Header, Image, Segment } from 'semantic-ui-react'
+import { Form, Button, Grid, Header, Image, Segment, Message } from 'semantic-ui-react'
 import { useState } from 'react'
 import userService from '../../utils/userService'
 
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage'
-import { useNavigate } from 'react-router-dom' 
+import { useNavigate, Link } from 'react-router-dom' 
 
 export default function SignupPage({handleSignupOrLogin}){
 
@@ -76,6 +76,9 @@ export default function SignupPage({handleSignupOrLogin}){
           </Segment>
           {error ? <ErrorMessage error={error} /> : null}
         </Form>
+        <Message>
+          Actually have an account? <Link to="/login">Login</Link>
+        </Message>
       </Grid.Column>
     </Grid>
     )
