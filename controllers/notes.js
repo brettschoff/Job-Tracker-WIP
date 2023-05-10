@@ -2,7 +2,8 @@ const Application = require('../models/application')
 
 module.exports={
     show,
-    create
+    create,
+    delete: deleteNote,
 }
 
 async function show(req,res){
@@ -22,5 +23,18 @@ async function create(req,res){
         res.status(201).json({msg: 'Note created'})
     }catch(err){
         console.log(err)
+    }
+}
+
+async function deleteNote(req,res){
+    try{
+        console.log(req.params.id, 'THis is req.params.id')
+        const application = await Application.findOne({'notes._id': req.params.id, 'notes.username': req.user.user})
+        console.log(application.notes)
+        application.notes.remove(req.params.id)
+        await application.save()
+        res.json({data: 'note removed'})
+    }catch(err){
+        res.status(400).json({err})
     }
 }

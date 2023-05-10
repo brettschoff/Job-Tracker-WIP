@@ -23,3 +23,12 @@ export function create(id, data){
     body: JSON.stringify(data)
     }).then(res => res.json());
 }
+
+export function deleteNote(id){
+    return fetch(`/api/notes/${id}`,{
+        method: 'DELETE',
+        headers:{
+            Authorization: 'Bearer ' + tokenService.getToken()
+        }
+    }).then(res => res.json())
+}

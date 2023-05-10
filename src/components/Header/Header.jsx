@@ -12,9 +12,6 @@ export default function PageHeader({ handleLogout }) {
           <Link to="/new-application" style={{ paddingRight: 20 }}>
             New Application
           </Link>
-            <Link to={'/notes'} style={{paddingRight: 20}}>
-                Notes
-            </Link>
           <Link to="" onClick={handleLogout}>
             Logout
           </Link>
