@@ -21,6 +21,7 @@ export default function ApplicationTable({application, onChange}){
                     : <input type='checkbox' name='followUp' onChange={(e, data) => onChange(e, data, application._id)}/>}
                 </Table.Cell>
                 <Table.Cell><a href={application.jobLink}>Link</a></Table.Cell>
+                <Table.Cell><Link to={`/applications/${application._id}/notes`}>Notes</Link></Table.Cell>
             </Table.Row>
         </>
     )

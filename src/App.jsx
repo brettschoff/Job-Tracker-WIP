@@ -31,7 +31,7 @@ function App() {
         <Route path="/login" element={<LoginPage handleSignupOrLogin={handleSignupOrLogin} loggedUser={user}/> } />
         <Route path='/signup' element={<SignupPage handleSignupOrLogin={handleSignupOrLogin} loggedUser={user} /> } />
         <Route path='/new-application' element={<CreateApplication />} />
-        <Route path='/notes' element={<NotesPage/>} />
+        <Route path='/application/:id/notes' element={<NotesPage/>} />
       </Routes>
     );
   }
