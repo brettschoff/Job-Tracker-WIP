@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { Table, Icon, Checkbox, Dropdown } from 'semantic-ui-react'
 
 export default function ApplicationTable({application, onChange}){
@@ -19,7 +20,7 @@ export default function ApplicationTable({application, onChange}){
                     {application.followUp ? <Icon name='check'/>
                     : <input type='checkbox' name='followUp' onChange={(e, data) => onChange(e, data, application._id)}/>}
                 </Table.Cell>
-                <Table.Cell>{application.jobLink}</Table.Cell>
+                <Table.Cell><a href={application.jobLink}>Link</a></Table.Cell>
             </Table.Row>
         </>
     )

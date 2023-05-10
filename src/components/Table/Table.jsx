@@ -4,7 +4,7 @@ import TableBody from '../TableBody/TableBody'
 
 export default function applicationTable({applications, onChange}){
     return(
-        <Table celled>
+        <Table celled striped>
             <Table.Header>
                 <Table.Row>
                     <Table.HeaderCell>Title</Table.HeaderCell>

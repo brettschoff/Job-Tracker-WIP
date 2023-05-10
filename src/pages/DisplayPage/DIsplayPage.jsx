@@ -62,7 +62,7 @@ export default function DisplayPage({handleLogout}){
                 </Grid.Column>
             </Grid.Row>
             <Grid.Row>
-                <Grid.Column style={{maxWidth: 700}}>
+                <Grid.Column style={{maxWidth: 1000}}>
                     <Table applications={applications} onChange={onChange}/>
                 </Grid.Column>
             </Grid.Row>
