@@ -1,13 +1,11 @@
-import {List, Segment} from "semantic-ui-react";
+import {List} from "semantic-ui-react";
+import { Link } from "react-router-dom";
 
 export default function getAppDetail({appDetail}) {
     return (
-        <Segment>
-            <List><h1>Application Details</h1>
-                <List.Item><h3>Position Title: {appDetail.title}</h3></List.Item>
-                <List.Item><h3>Company: {appDetail.company}</h3></List.Item>
-                <List.Item><h3>Link: {appDetail.jobLink}</h3></List.Item>
+            <List horizontal>
+                <List.Item><h3>{appDetail.title} at {appDetail.company}</h3></List.Item>
+                <List.Item><Link to={appDetail.jobLink}>Link</Link></List.Item>
             </List>
-        </Segment>
     )
 }
