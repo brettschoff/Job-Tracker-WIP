@@ -5,6 +5,7 @@ import PageHeader from "../../components/Header/Header";
 import { useEffect, useState,  } from "react";
 import * as notesApi from "../../utils/notesAPi";
 import AddNoteForm from "../../components/AddNoteForm/AddNoteForm";
+import AppDetail from "../../components/AppDetail/AppDetail";
 
 export default function NotesPage() {
   const { id } = useParams();
@@ -17,6 +18,7 @@ export default function NotesPage() {
     note: "",
     priority: "Low",
   });
+  const [appDetail, setAppDetail] = useState({})
   let highPrioNote = [];
   let mediumPrioNote = [];
   let lowPrioNote = [];
@@ -28,6 +30,7 @@ export default function NotesPage() {
       const response = await notesApi.getAll(id);
       console.log(response, "this is the response from getNotes");
       setNotes(response.application.notes);
+      setAppDetail(response.application);
     } catch (err) {
       console.log(err);
     }
@@ -62,7 +65,7 @@ export default function NotesPage() {
 
   useEffect(() => {
     getNotes(id);
-  }, [handleDelete]);
+  }, []);
 
   notes.map((note) => {
     if (note.priority === "High") {
@@ -77,6 +80,7 @@ export default function NotesPage() {
   return (
     <>
       <PageHeader />
+      <AppDetail appDetail={appDetail} />
       <AddNoteForm handleSubmit={handleSubmit} handleChange={handleChange} />
       <Grid centered>
         <Grid.Row columns={3}>
