@@ -18,12 +18,14 @@ async function index(req,res){
 async function create(req,res){
     console.log(req.body, req.user, '<- This is the req body.')
     try{
+        let date = req.body.dateApplied
+        let formattedDate = date.split('T')[0];
         await Application.create({
             title: req.body.title,
             user: req.user._id,
             company: req.body.company,
             status: req.body.status,
-            dateApplied: req.body.dateApplied,
+            dateApplied: formattedDate,
             jobLink: req.body.jobLink,
             contactEmail: req.body.contactEmail
         })

@@ -5,12 +5,11 @@ import AppDetail from "../AppDetail/AppDetail";
 export default function PageHeader({ handleLogout, isNotePage, appDetail }) {
     if (isNotePage) {
     return (
-    <Sticky>
-      <Segment clearing>
+      <Segment clearing style={{padding: 0}}>
         <Header as="h2" floated="left">
             <AppDetail appDetail={appDetail}/>
         </Header>   
-        <Header as="h2" floated="right">
+        <Header as="h2" floated="right" style={{paddingTop: 10}}>
           <Link to="/" style={{ paddingRight: 20 }}>
             <Icon name="home"></Icon>
           </Link>
@@ -22,12 +21,11 @@ export default function PageHeader({ handleLogout, isNotePage, appDetail }) {
           </Link>
         </Header>
       </Segment>
-    </Sticky>
   )};
   return (
     <Sticky>
       <Segment clearing>
-        <Header as="h2" floated="right">
+        <Header as="h2" floated="right" >
           <Link to="/" style={{ paddingRight: 20 }}>
             <Icon name="home"></Icon>
           </Link>
