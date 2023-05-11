@@ -7,7 +7,7 @@ import * as notesApi from "../../utils/notesAPi";
 import AddNoteForm from "../../components/AddNoteForm/AddNoteForm";
 import AppDetail from "../../components/AppDetail/AppDetail";
 
-export default function NotesPage() {
+export default function NotesPage({handleLogout}) {
   const { id } = useParams();
   const applicationId = id
   const navigate = useNavigate()
@@ -79,6 +79,7 @@ export default function NotesPage() {
 
   return (
     <>
+
       <PageHeader />
       <AppDetail appDetail={appDetail} />
       <AddNoteForm handleSubmit={handleSubmit} handleChange={handleChange} />

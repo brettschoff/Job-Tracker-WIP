@@ -30,8 +30,8 @@ function App() {
         <Route path="/" element={<DisplayPage handleLogout={handleLogout} />} />
         <Route path="/login" element={<LoginPage handleSignupOrLogin={handleSignupOrLogin} loggedUser={user}/> } />
         <Route path='/signup' element={<SignupPage handleSignupOrLogin={handleSignupOrLogin} loggedUser={user} /> } />
-        <Route path='/new-application' element={<CreateApplication />} />
-        <Route path='/application/:id/notes' element={<NotesPage/>} />
+        <Route path='/new-application' element={<CreateApplication handleLogout={handleLogout}/>} />
+        <Route path='/application/:id/notes' element={<NotesPage handleLogout={handleLogout}/>}/>
       </Routes>
     );
   }
