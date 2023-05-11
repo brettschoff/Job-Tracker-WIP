@@ -1,9 +1,10 @@
-import { Table } from 'semantic-ui-react'
+import { Table, Card } from 'semantic-ui-react'
 import TableBody from '../TableBody/TableBody'
 
 
 export default function applicationTable({applications, onChange}){
     return(
+        <Card raised fluid>
         <Table celled striped>
             <Table.Header>
                 <Table.Row>
@@ -23,5 +24,6 @@ export default function applicationTable({applications, onChange}){
                 })}
             </Table.Body>
         </Table>
+        </Card>
     )
 }

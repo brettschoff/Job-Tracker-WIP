@@ -80,8 +80,7 @@ export default function NotesPage({handleLogout}) {
   return (
     <>
 
-      <PageHeader />
-      <AppDetail appDetail={appDetail} />
+      <PageHeader handleLogout={handleLogout} appDetail={appDetail} isNotePage={true}/>
       <AddNoteForm handleSubmit={handleSubmit} handleChange={handleChange} />
       <Grid centered>
         <Grid.Row columns={3}>

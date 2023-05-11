@@ -4,8 +4,9 @@ import { Button, Form, Grid, Segment } from "semantic-ui-react";
 export default function AddNoteForm({ handleChange, handleSubmit }) {
   return (
     <Grid centered style={{paddingTop:30}}>
+        <h2>Add a Note</h2>
       <Grid.Row>
-        <Grid.Column style={{ maxWidth: 900 }}>
+        <Grid.Column style={{maxWidth:900}}>
           <Segment>
             <Form onSubmit={handleSubmit}>
               <Form.Input
