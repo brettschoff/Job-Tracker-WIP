@@ -6,7 +6,7 @@ import { useEffect, useState,  } from "react";
 import * as notesApi from "../../utils/notesAPi";
 import AddNoteForm from "../../components/AddNoteForm/AddNoteForm";
 
-export default function NotesPage() {
+export default function NotesPage({handleLogout}) {
   const { id } = useParams();
   const applicationId = id
   const navigate = useNavigate()
@@ -62,7 +62,7 @@ export default function NotesPage() {
 
   useEffect(() => {
     getNotes(id);
-  }, [handleDelete]);
+  }, []);
 
   notes.map((note) => {
     if (note.priority === "High") {
@@ -76,7 +76,7 @@ export default function NotesPage() {
 
   return (
     <>
-      <PageHeader />
+      <PageHeader handleLogout={handleLogout}/>
       <AddNoteForm handleSubmit={handleSubmit} handleChange={handleChange} />
       <Grid centered>
         <Grid.Row columns={3}>

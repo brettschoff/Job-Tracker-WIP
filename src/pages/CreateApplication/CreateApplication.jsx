@@ -6,7 +6,7 @@ import * as applicationsApi from "../../utils/applicationsApi";
 
 import PageHeader from "../../components/Header/Header";
 
-export default function CreateApplication() {
+export default function CreateApplication({ handleLogout }) {
   const navigate = useNavigate();
 
   const options = [
@@ -45,14 +45,14 @@ export default function CreateApplication() {
     <Grid centered style={{ height: "100vh" }} verticalAlign="middle">
       <Grid.Row style={{ height: 80 }}>
         <Grid.Column>
-          <PageHeader />
+          <PageHeader handleLogout={handleLogout} />
         </Grid.Column>
       </Grid.Row>
       <Grid.Row style={{ height: 900 }}>
         <Grid.Column style={{ maxWidth: 900 }}>
           <Card fluid raised>
             <Card.Content>
-              <Form onSubmit={handleSubmit} style={{ maxWidth: 900 }} >
+              <Form onSubmit={handleSubmit} style={{ maxWidth: 900 }}>
                 <Form.Field>
                   <input
                     name="title"
