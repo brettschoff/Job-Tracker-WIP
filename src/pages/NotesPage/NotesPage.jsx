@@ -55,7 +55,6 @@ export default function NotesPage() {
     try {
         console.log(id)
         await notesApi.deleteNote(id);
-        navigate(`/application/${applicationId}/notes`)
     } catch (err) {
       console.log(err);
     }
@@ -63,7 +62,7 @@ export default function NotesPage() {
 
   useEffect(() => {
     getNotes(id);
-  }, []);
+  }, [handleDelete]);
 
   notes.map((note) => {
     if (note.priority === "High") {
