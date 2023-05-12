@@ -23,6 +23,7 @@ export default function NotesPage({handleLogout}) {
   let mediumPrioNote = [];
   let lowPrioNote = [];
 
+  const [loading,setLoading]=useState(true)
   async function getNotes(id) {
     // fetch the notes for the id in params
     // setNotes to the response
@@ -31,6 +32,7 @@ export default function NotesPage({handleLogout}) {
       console.log(response, "this is the response from getNotes");
       setNotes(response.application.notes);
       setAppDetail(response.application);
+      setLoading(false)
     } catch (err) {
       console.log(err);
     }
@@ -49,6 +51,11 @@ export default function NotesPage({handleLogout}) {
     try {
       await notesApi.create(id, form);
       setNotes([form, ...notes]);
+      setForm({
+        title: "",
+        note: "",
+        priority: "Low",
+      })
     } catch (err) {
       console.log(err);
     }
@@ -56,8 +63,10 @@ export default function NotesPage({handleLogout}) {
 
   async function handleDelete(id) {
     try {
+        setLoading(true)
         console.log(id)
         await notesApi.deleteNote(id);
+        setLoading(false)
     } catch (err) {
       console.log(err);
     }
@@ -65,7 +74,7 @@ export default function NotesPage({handleLogout}) {
 
   useEffect(() => {
     getNotes(id);
-  }, []);
+  }, [loading]);
 
   notes.map((note) => {
     if (note.priority === "High") {
@@ -81,7 +90,7 @@ export default function NotesPage({handleLogout}) {
     <>
 
       <PageHeader handleLogout={handleLogout} appDetail={appDetail} isNotePage={true}/>
-      <AddNoteForm handleSubmit={handleSubmit} handleChange={handleChange} />
+      <AddNoteForm handleSubmit={handleSubmit} handleChange={handleChange} form={form}/>
       <Grid centered>
         <Grid.Row columns={3}>
           <Grid.Column textAlign="center">
