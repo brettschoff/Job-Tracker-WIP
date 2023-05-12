@@ -32,6 +32,7 @@ async function deleteNote(req,res){
         const application = await Application.findOne({'notes._id': req.params.id, 'notes.username': req.user.user})
         console.log(application.notes)
         application.notes.remove(req.params.id)
+        console.log('This is deleting the note.')
         await application.save()
         res.json({data: 'note removed'})
     }catch(err){
