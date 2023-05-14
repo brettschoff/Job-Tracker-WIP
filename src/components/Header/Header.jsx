@@ -5,8 +5,8 @@ import AppDetail from "../AppDetail/AppDetail";
 export default function PageHeader({ handleLogout, isNotePage, appDetail }) {
     if (isNotePage) {
     return (
-      <Segment clearing style={{padding: 0}}>
-        <Header as="h2" floated="left">
+      <Segment clearing style={{padding: 0, backgroundColor: '#2F332F'}}>
+        <Header as="h2" floated="left" >
             <AppDetail appDetail={appDetail}/>
         </Header>   
         <Header as="h2" floated="right" style={{paddingTop: 20}}>
@@ -24,7 +24,7 @@ export default function PageHeader({ handleLogout, isNotePage, appDetail }) {
   )};
   return (
     <Sticky>
-      <Segment clearing>
+      <Segment clearing style={{backgroundColor: '#2F332F'}}>
         <Header as="h2" floated="right" >
           <Link to="/" style={{ paddingRight: 20 }}>
             <Icon name="home"></Icon>
