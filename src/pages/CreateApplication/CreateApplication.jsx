@@ -42,12 +42,13 @@ export default function CreateApplication({ handleLogout }) {
     }
   }
   return (
-    <Grid centered style={{ height: "100vh" }} verticalAlign="middle">
+    <Grid centered style={{ height: "100vh" }} >
       <Grid.Row style={{ height: 80 }}>
         <Grid.Column>
           <PageHeader handleLogout={handleLogout} />
         </Grid.Column>
       </Grid.Row>
+      <h2>New Application</h2>
       <Grid.Row style={{ height: 900 }}>
         <Grid.Column style={{ maxWidth: 900 }}>
           <Card fluid raised>

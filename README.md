@@ -1,32 +1,45 @@
 
-# Mern Boilerplate
+# BS Job Hunter
 
-This is a mern Boilerplate using vite to compile the frontend.  
+BS Job Hunter is a utility designed for those seeking employment. BS Job Hunter allows you to record your job applications so you can stay organized and on top of your job search, and keep an organized set of notes all in one place for those late callbacks you’ve already forgotten about. 
 
-##### Things to note
+## Features
 
-1. The server code is using `import`, currently you have to add the file extension in the server code. 
+1. User-Authentication using jsonwebtoken and bcrypt
 
-2.  Note the `index.html` for the code needed to be added for hot reloading and etc... 
+2. Create and manage job applications
 
-3. Code is setup to use `JWT` auth
+3. Add personal notes to individual applications and sort them based on priority
 
-4. Take a look at the server.js code, there is some es6 things to setup `__dirname`
+## Screenshots
+
+<img src="https://i.imgur.com/jzSN4PT.png">
+
+<img src="https://i.imgur.com/a4RnVZt.png">
+
+<img src="https://i.imgur.com/8QijwN3.png">
 
 
-#### Setup 
+#### Technologies Used 
 
-1. ```npm install```
-2. ```npm run dev```
-3. setup `.env` file 
+- MongoDB
+- Mongoose
+- Express.js
+- React
+- Node.js
+- Semantic UI
+- Axios
+- JavaScript
+- CSS
+- HTML
 
-- .env file 
+## Getting Started 
 
-```
-SECRET=seiRocks!
-```
+- Link to Deployed App: https://itchy-tick-jersey.cyclic.app/
+- Link to Trello Board: https://trello.com/b/yIG1iawM/java-ripped-board
+- Link to Slide Deck: https://docs.google.com/presentation/d/1gQ6L3HNeA11_V4KGBv3qoEwkKnLmxYLIftvlJloZXTA/edit#slide=id.p
 
-##### Starting the App
+## Next Steps
 
-- One terminal
-command - ```npm run dev```
+- Added support for API search of Job Boards such as indeed and glassdoor
+- Location tracker to show distance of Job from a selected address

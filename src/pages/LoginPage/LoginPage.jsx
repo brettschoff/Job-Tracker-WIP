@@ -3,6 +3,7 @@ import './LoginPage.css';
 import {
   Button,
   Form,
+  Image,
   Grid,
   Header,
   Message,
@@ -46,7 +47,8 @@ export default function LoginPage(props){
       verticalAlign="middle"
     >
       <Grid.Column style={{ maxWidth: 450 }}>
-        <Header as="h2" color="purple" textAlign="center">
+        <Header as="h2" color="blue" textAlign="center">
+          <Image src="https://i.imgur.com/stqXJe2.png" /> Log In
         </Header>
         <Form onSubmit={handleSubmit}>
           <Segment stacked>
