@@ -35,8 +35,8 @@ BS Job Hunter is a utility designed for those seeking employment. BS Job Hunter 
 
 ## Getting Started 
 
-- Link to Deployed App: https://itchy-tick-jersey.cyclic.app/
-- Link to Trello Board: https://trello.com/b/yIG1iawM/java-ripped-board
+- Link to Deployed App: https://bs-job-hunter.onrender.com/
+- Link to Trello Board: https://trello.com/b/FxVVLT68/job-tracker
 - Link to Slide Deck: https://docs.google.com/presentation/d/1gQ6L3HNeA11_V4KGBv3qoEwkKnLmxYLIftvlJloZXTA/edit#slide=id.p
 
 ## Next Steps
